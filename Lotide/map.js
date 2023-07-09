@@ -9,27 +9,9 @@ const map = function(array, callback) {
 const results1 = map(words, word => word[0]);
 console.log(results1);
 
-const eqArrays = function(a, b) {
-  if (a.length !== b.length) {
-    return false; 
-  }
+const eqArrays = require ('./eqArrays')
 
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      return false; 
-    }
-  }
-    return true;
-  
-}
-const assertArraysEqual = function(array1, array2){
-  if (eqArrays(array1, array2)) {
-    console.log(`Assertion Passed: [${array1}] === [${array2}] \u{1F600}`);
-  } 
-  else {
-    console.log(`Assertion Failed: [${array1}] !== [${array2}] \u{1F612}`);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual');
 
 
 
@@ -47,3 +29,5 @@ assertArraysEqual(multipliedNumbers, [2, 4, 8, 10]);
 const nums = [2, 4, 6, 8, 10];
 const squaredNums = map(nums, num => num * num);
 assertArraysEqual(squaredNums, [4, 16, 36, 64, 100]);
+
+module.exports = map;
