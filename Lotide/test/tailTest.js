@@ -1,8 +1,13 @@
-const tail = require('../tail');
-const assertEqual = require('../assertEqual');
+const { assert } = require("chai");
+const tail = require("../tail");
 
-//Test code
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-const tailResult = tail(words);
-assertEqual(words.length, 3);
-console.log(tailResult);
+describe("#tail", () => {
+  const words = ["Yo Yo", "Lighthouse", "Labs"];
+  it("returns ['Lighthouse', 'Labs'] for tail(words)", () => {
+    assert.deepEqual(tail(words), ['Lighthouse', 'Labs']);
+  });
+  it("returns 4 !== for words.length", () => {
+    assert.notStrictEqual((words.length), 4);
+  });
+ 
+});
