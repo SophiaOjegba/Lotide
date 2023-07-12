@@ -9,17 +9,18 @@ function countLetters(sentence) {
   const newSentence = sentence.replace(/\s/g, "").toLowerCase();
   
   // Initializing each character in the sentence as a key in the result object with a value of 0
-  for (const char in newSentence) {
-    result[newSentence[char]] = 0;
+  for (const char of newSentence) {  // Change for...in to for...of
+    result[char] = 0;  // Use char directly as the key
   }
   
   // Counting the occurrences of each character in the original sentence
-  for (const char in sentence) {
-    result[newSentence[char]]++;
+  for (const char of newSentence) {  // Change for...in to for...of
+    result[char]++;  // Use char directly as the key
   }
 
   return result;
-};
+}
+
 
 // Exporting the countLetters function
 module.exports = countLetters;
